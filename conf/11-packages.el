@@ -218,6 +218,7 @@
 (require 'sl)
 
 ;;; Nyanmode (*^o^*)
+;; .emacs.dで "git submodule add https://github.com/TeMPOraL/nyan-mode.git ./lisp/nyan-mode" を実効
 (require 'nyan-mode)
 (nyan-mode t)
 (nyan-start-animation)
