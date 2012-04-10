@@ -1,0 +1,6 @@
+[submodule "public_repos/nyan-mode"]
+	path = public_repos/nyan-mode
+	url = https://github.com/TeMPOraL/nyan-mode.git
+[submodule "lisp/nyan-mode"]
+	path = lisp/nyan-mode
+	url = https://github.com/TeMPOraL/nyan-mode.git
