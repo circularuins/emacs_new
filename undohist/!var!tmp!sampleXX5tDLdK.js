@@ -1,0 +1,2 @@
+
+((digest . "df502872c1c9a997e2a0f300ec32cf94") (undo-list nil (3646 . 3651) nil (#("c" 0 1 (face font-lock-string-face)) . -3646) nil (#("i" 0 1 (face font-lock-string-face)) . -3647) nil (#("r" 0 1 (face font-lock-string-face)) . -3648) nil (#("c" 0 1 (face font-lock-string-face)) . -3649) nil (#("u" 0 1 (face font-lock-string-face)) . -3650) nil (#("l" 0 1 (face font-lock-string-face)) . -3651) nil (#("e" 0 1 (face font-lock-string-face)) . -3652) (t 20236 . 2499)))

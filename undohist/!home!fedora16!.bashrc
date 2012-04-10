@@ -1,0 +1,2 @@
+
+((digest . "822ffd1b1b9ff61086f72082214c1013") (undo-list nil (397 . 398) nil (395 . 397) nil (393 . 395) nil (383 . 393) nil (#("e" 0 1 (fontified t face font-lock-string-face)) . -383) nil (#("r" 0 1 (fontified t face font-lock-string-face)) . -384) nil (375 . 385) nil (355 . 375) nil (343 . 355) nil (341 . 343) nil (337 . 338) nil (339 . 340) nil (332 . 339) nil (327 . 332) nil (326 . 327) nil (325 . 326) nil (323 . 325) nil (320 . 323) nil (#("s" 0 1 (fontified t)) . -320) nil (312 . 321) (#("fun" 0 3 (fontified t)) . -312) nil (311 . 315) (t 20279 . 36431)))

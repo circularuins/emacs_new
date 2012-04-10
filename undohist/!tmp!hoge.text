@@ -1,0 +1,6 @@
+
+((digest . "d41d8cd98f00b204e9800998ecf8427e") (undo-list nil (#("10 + 20
+" 0 2 (fontified t face font-lock-constant-face) 2 5 (fontified t) 5 7 (fontified t face font-lock-constant-face) 7 8 (fontified t)) . 1) ((marker . 1) . -8) ((marker . 1) . -8) ((marker . 1) . -8) ((marker) . -8) ((marker) . -8) nil (#("fuga キーワード piyo
+" 0 4 (fontified t face font-lock-keyword-face) 4 11 (fontified t) 11 15 (fontified t face font-lock-keyword-face) 15 16 (fontified t)) . 1) ((marker) . -16) nil (#("キーワード hoge
+" 0 6 (fontified t) 6 10 (fontified t face font-lock-keyword-face) 10 11 (fontified t)) . 1) ((marker) . -11) nil (#("#普通の湖面tp
+" 0 1 (fontified t face font-lock-comment-delimiter-face) 1 9 (fontified t face font-lock-comment-face)) . 1) ((marker) . -9) nil (44 . 45) nil (36 . 44) nil (20 . 36) nil (9 . 20) nil (1 . 9) (t 65535 . 65535)))
