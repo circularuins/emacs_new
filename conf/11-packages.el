@@ -146,7 +146,7 @@
           (unless (anything-candidate-buffer)
             (save-window-excursion
               (anything-font-families-create-buffer))
-            (anything-candidate-buffer
+            (anything-candidate-bufferx
              (get-buffer "*Fonts*"))))
     (candidates-in-buffer)
     (get-line . buffer-substring)

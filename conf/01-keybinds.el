@@ -37,3 +37,11 @@
 
 ;;; バッファ一覧をまともに
 (global-set-key "\C-x\C-b" 'bs-show)
+
+;;; 矢印キーでウィンドウ移動
+(when (fboundp 'windmove-default-keybindings)
+      (windmove-default-keybindings))
+(global-set-key (kbd "C-c <left>")  'windmove-left)
+    (global-set-key (kbd "C-c <right>") 'windmove-right)
+    (global-set-key (kbd "C-c <up>")    'windmove-up)
+    (global-set-key (kbd "C-c <down>")  'windmove-down)
