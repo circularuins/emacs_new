@@ -78,6 +78,7 @@
       (push '(" *auto-async-byte-compile*" :height 10 :position bottom :noselect t) popwin:special-display-config)
       (push '("*Compile-Log*" :height 10 :position bottom :noselect t) popwin:special-display-config)
       (push '("*VC-log*" :height 10 :position bottom) popwin:special-display-config)
+      (push '("*anything kill-ring*" :height 14) popwin:special-display-config)
       ))
 ;; slime用の設定
 ;; Apropos
@@ -112,12 +113,19 @@
 ;;(require 'anything-startup)
 (require 'anything)
 (require 'anything-config)
-(key-chord-define-global "zx"
-;(define-key global-map (kbd "M-x")
+;(key-chord-define-global "zx"
+(define-key global-map (kbd "M-x")
   (lambda ()
     "Execute emacs commands in anything"
     (interactive)
     (anything '(anything-c-source-emacs-commands))))
+
+;;; describe-bindingsをAnythingに置き換える
+(when (require 'descbinds-anything nil t)
+  (descbinds-anything-install))
+
+;;; M-yにanything-show-kill-ringを割り当てる
+(define-key global-map (kbd "M-y") 'anything-show-kill-ring)
 
 ;;; anythingフレームワークでフォントを確認する
 (require 'cl)  ; loop, delete-duplicates
@@ -388,6 +396,17 @@
 (defun e2wm:my-toggle-sub () ; Subをトグルする関数
   (interactive)
   (e2wm:pst-window-toggle 'sub t 'main))
+
+;;; simple-hatena-mode
+(require 'simple-hatena-mode)
+
+;;; cperl-modeの補完
+;; cpanm -Sv Class::Inspector が必要
+(add-hook  'cperl-mode-hook
+           (lambda ()
+             (require 'perl-completion)
+             (perl-completion-mode t)
+             (add-to-list 'ac-sources 'ac-source-perl-completion)))
 
 ;;;;この下に設定を追加しない！！
 ;;; 試行錯誤用ファイル

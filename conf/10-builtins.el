@@ -105,3 +105,6 @@ load
     (setq eldoc-echo-area-use-multiline-p t)
     (turn-on-eldoc-mode)))
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
+
+;;; 相対的なカーソル位置を保ったままスクロール
+(setq scroll-preserve-screen-position t)

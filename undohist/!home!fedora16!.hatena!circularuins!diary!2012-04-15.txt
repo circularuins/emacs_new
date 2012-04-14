@@ -1,0 +1,2 @@
+
+((digest . "098f6bcd4621d373cade4e832627b4f6") (undo-list nil (1 . 5) nil ("o" . -1) nil ("d" . -2) nil ("o" . -3) nil (1 . 4) (t 65535 . 65535)))
