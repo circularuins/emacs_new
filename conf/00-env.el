@@ -1,32 +1,6 @@
 ;;; Localeに合わせた環境の設定
 (set-locale-environment nil)
 
-;;; 起動時のウィンドウサイズ
-(setq initial-frame-alist
-      (append (list
-      '(width . 120)
-      '(height . 45)
-      '(top . 0)
-      '(left . 0)
-       )
-      initial-frame-alist))
-(setq default-frame-alist initial-frame-alist)
-
-;;; 背景色と透明度
-(if window-system (progn
-  (set-background-color "Black")
-  (set-foreground-color "LightGray")
-  (set-cursor-color "Gray")
-;  (set-frame-parameter nil 'alpha 70)
-  ))
-
-;;; color-themeの設定
-(require 'color-theme)
-(color-theme-initialize)
-;;(color-theme-arjen)
-;;(color-theme-euphoria)(
-(color-theme-clarity)
-
 ;;; キーワードのカラー表示を有効化
 (global-font-lock-mode t)
 

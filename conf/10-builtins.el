@@ -10,17 +10,6 @@
 ;; M-x exitでemacsを終了出来るようにする
 (defalias 'exit 'save-buffers-kill-emacs)
 
-;;; 現在位置のファイル・URLを開く
-(ffap-bindings)
-
-;;;フルスクリーンモードの切り替え
-(defun toggle-fullscreen ()
-  (interactive)
-  (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen)
-                                           nil
-                                           'fullboth)))
-(global-set-key [(meta return)] 'toggle-fullscreen)
-
 ;;; 年月日時刻の表示
 ;; 以下の書式に従ってモードラインに日付・時刻を表示する 
 (setq display-time-string-forms 
@@ -36,21 +25,6 @@ load
 (setq display-time-kawakami-form t) 
 ;; 24 時間制 
 (setq display-time-24hr-format t)
-
-;;; cperl-modeの設定
-(defalias 'perl-mode 'cperl-mode)
-(add-hook 'cperl-mode-hook
-          '(lambda ()
-             (cperl-set-style "PerlStyle")))
-
-;;; iswitchb(バッファ切り替え時のインクリメンタル補完)
-(iswitchb-mode 1)
-(add-hook 'iswitchb-define-mode-map-hook
-          (lambda ()
-            (define-key iswitchb-mode-map "\C-n" 'iswitchb-next-match)
-            (define-key iswitchb-mode-map "\C-p" 'iswitchb-prev-match)
-            (define-key iswitchb-mode-map "\C-f" 'iswitchb-next-match)
-            (define-key iswitchb-mode-map "\C-b" 'iswitchb-prev-match)))
 
 ;; org-mode
 ;; Emacsでメモ・TODO管理
@@ -96,15 +70,3 @@ load
 ;;; ファイルが #! から始まる場合、+X を付けて保存する
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
-
-;;; emacs-lisp-modeのフック
-(defun elisp-mode-hooks ()
-  "lisp-mode-hooks"
-  (when (require 'eldoc nil t)
-    (setq eldoc-idle-delay 0.2)
-    (setq eldoc-echo-area-use-multiline-p t)
-    (turn-on-eldoc-mode)))
-(add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
-
-;;; 相対的なカーソル位置を保ったままスクロール
-(setq scroll-preserve-screen-position t)
