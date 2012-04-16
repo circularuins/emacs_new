@@ -185,7 +185,7 @@
 
 ; shell-pop の設定
 (require 'shell-pop)
-(key-chord-define-global "qw" 'shell-pop)
+;(key-chord-define-global "qw" 'shell-pop)
 (shell-pop-set-internal-mode "eshell")
 ;(shell-pop-set-internal-mode-shell "/bin/zsh")
 (shell-pop-set-window-height 60)
