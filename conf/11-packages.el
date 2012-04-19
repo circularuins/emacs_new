@@ -38,6 +38,11 @@
 ;;; simple-hatena-mode
 (require 'simple-hatena-mode)
 
+;;; 英和・和英
+(require 'text-translator)
+(setq text-translator-auto-selection-func
+     'text-translator-translate-by-auto-selection-enja)
+
 ;;;;この下に設定を追加しない！！
 ;;; 試行錯誤用ファイル
 (require 'open-junk-file)

@@ -31,9 +31,13 @@
 ;(key-chord-define-global "zx"
 (define-key global-map (kbd "M-x")
   (lambda ()
-    "Execute emacs commands in anything"
     (interactive)
-    (anything '(anything-c-source-emacs-commands))))
+    (anything-other-buffer
+     '(anything-c-source-extended-command-history anything-c-source-emacs-commands)
+     "*anything emacs commands*")))
+;; 履歴コマンドの設定
+(setq extended-command-history
+     '( "anything-for-files" "perltidy-region" "eval-region" "eval-buffer"))
 
 ;;; describe-bindingsをAnythingに置き換える
 (when (require 'descbinds-anything nil t)
