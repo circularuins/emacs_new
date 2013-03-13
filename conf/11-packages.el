@@ -18,9 +18,9 @@
 
 ;;; Nyanmode (*^o^*)
 ;; .emacs.dで "git submodule add https://github.com/TeMPOraL/nyan-mode.git ./public_repos/nyan-mode" を実行
-(require 'nyan-mode)
-(nyan-mode t)
-(nyan-start-animation)
+;; (require 'nyan-mode)
+;; (nyan-mode t)
+;; (nyan-start-animation)
 
 ;;; tail
 (require 'tail)

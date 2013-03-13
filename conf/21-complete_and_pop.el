@@ -9,7 +9,9 @@
           (lambda ()
             (define-key ac-completing-map (kbd "C-n") 'ac-next)
             (define-key ac-completing-map (kbd "C-p") 'ac-previous)))
-
+;; lisp-modeとslimeで自動補完する
+(add-to-list 'ac-modes 'lisp-mode)
+(add-to-list 'ac-modes 'slime-repl-mode)
 ;;; ac-mode
 ;(autoload 'ac-mode "ac-mode" "Minor mode for advanced completion." t nil)
 

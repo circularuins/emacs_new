@@ -1,6 +1,6 @@
 ;;; slime(lisp-mode)の設定
-;;(setq inferior-lisp-program "clisp")    ; clisp用
-(setq inferior-lisp-program "sbcl")     ; sbcl用
+(setq inferior-lisp-program "clisp")    ; clisp用
+;;(setq inferior-lisp-program "sbcl")     ; sbcl用
 (require 'slime)
 (slime-setup '(slime-repl slime-fancy slime-banner))
 (setq slime-net-coding-system 'utf-8-unix)
