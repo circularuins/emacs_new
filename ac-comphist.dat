@@ -1,5 +1,7 @@
-((("slime-repl-mode" .
-                     [1 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+((("enable-paredit-mode" .
+                         [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("slime-repl-mode" .
+                     [1 0 0 0 0 0 0 0 0 0 0 1 0 1 0])
   ("anything-for-files" .
                         [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
   ("HelloWorld/" .
@@ -457,4 +459,6 @@
   ("perl-completion-mode" .
                           [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
   ("defparameter" .
-                  [0 0 0 0 0 0 0 1 0 0 0 0])))
+                  [0 0 0 0 0 0 0 1 0 0 0 0])
+  ("slime-repl-mode-hook" .
+                          [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])))
