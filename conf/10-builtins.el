@@ -70,3 +70,7 @@ load
 ;;; ファイルが #! から始まる場合、+X を付けて保存する
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
+
+;;; zo～～ne
+(require 'zone)
+(zone-when-idle 15)
