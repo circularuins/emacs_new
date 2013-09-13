@@ -8,10 +8,6 @@
 ;;; gist.github.comを利用する ;;;
 (require 'gist)
 
-;;; simple-hatena-mode ;;;
-;; はてなブログに投稿
-;(require 'simple-hatena-mode)
-
 ;;; twitter ;;;
 (require 'twittering-mode)
 (setq twittering-allow-insecure-server-cert t)
