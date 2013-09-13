@@ -101,3 +101,12 @@ load
 
 ;;; キーストロークをエコーエリアに早く表示する
 (setq echo-keystrokes 0.1)
+
+;;; 背景色を透過に
+(when window-system
+  (set-frame-parameter nil 'alpha 85))
+
+;;; MetaキーをAltからCmdへ変更(Macのみ)
+(when (eq system-type 'darwin)
+  (setq ns-command-modifier (quote meta))
+  (setq ns-alternate-modifier (quote super)))
