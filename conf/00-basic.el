@@ -76,10 +76,6 @@ load
 (setq completion-ignore-case t)
 (setq read-file-name-completion-ignore-case t)
 
-;;; 部分一致の補完機能を使う
-;;; p-bでprint-bufferとか
-(partial-completion-mode t)
-
 ;;; 履歴数を大きくする
 (setq history-length t)
 
