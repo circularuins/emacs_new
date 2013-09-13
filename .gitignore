@@ -1,0 +1,11 @@
+.*~
+*~
+/*
+
+!/init.el
+!/init.elc
+!/conf
+!/elisp
+!/elpa
+!/doc
+!/.gitignore
