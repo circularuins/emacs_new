@@ -2,7 +2,6 @@
 ;;(require 'w3m-load)
 
 ;;; ローカル環境のブラウザでgoogle検索 ;;;
-;; デフォルトはfirefox?
 (load "google")
 
 ;;; gist.github.comを利用する ;;;
