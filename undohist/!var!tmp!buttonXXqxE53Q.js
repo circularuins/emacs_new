@@ -1,2 +1,0 @@
-
-((digest . "40fafdb70c597da7cca1569ec768c054") (undo-list nil (73 . 74) nil (67 . 73) nil (#("T" 0 1 (face font-lock-string-face help-echo "unterminated string literal" point-entered js2-echo-error)) . -67) ((marker) . -1) nil (#("E" 0 1 (face font-lock-string-face help-echo "unterminated string literal" point-entered js2-echo-error)) . -68) ((marker) . -1) nil (60 . 69) (60 . 61) (t 20352 . 17605)))
