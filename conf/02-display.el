@@ -113,7 +113,7 @@
 ;; 起動時のウィンドウサイズ
 (setq initial-frame-alist
       (append (list
-      '(width . 140)
+      '(width . 180)
       '(height . 55)
       '(top . 0)
       '(left . 0)
@@ -142,16 +142,6 @@
 ;;   (color-theme-solarized-light))
 
 ;;; #各種ウィンドウモード ;;;
-
-;; フルスクリーンモード(GUIのみ)
-;; "M-Ret"で切り替え
-(when window-system
-       (defun toggle-fullscreen ()
-         (interactive)
-         (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen)
-                                                  nil
-                                                'fullboth)))
-       (global-set-key [(meta return)] 'toggle-fullscreen))
 
 ;; e2wmモード（IDE風のウィンドウ分割）
 ;; (auto-install-from-url "http://github.com/kiwanami/emacs-window-layout/raw/master/window-layout.el")

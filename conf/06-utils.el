@@ -7,6 +7,7 @@
      'text-translator-translate-by-auto-selection-enja)
 
 ;; Nyanmode (*^o^*)
+;; git clone https://github.com/TeMPOraL/nyan-mode.git ~/.emacs.d/public_repos/nyan_mode
 (when window-system
   (require 'nyan-mode)
   (nyan-mode t)
