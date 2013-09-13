@@ -113,8 +113,8 @@
 ;; 起動時のウィンドウサイズ
 (setq initial-frame-alist
       (append (list
-      '(width . 120)
-      '(height . 45)
+      '(width . 140)
+      '(height . 55)
       '(top . 0)
       '(left . 0)
        )
@@ -126,7 +126,7 @@
   (set-background-color "Black")
   (set-foreground-color "LightGray")
   (set-cursor-color "Gray")
-;  (set-frame-parameter nil 'alpha 70)
+  (set-frame-parameter nil 'alpha 85)
   ))
 
 ;;; #文字やツールバーの色 ;;;
