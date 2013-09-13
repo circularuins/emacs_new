@@ -118,19 +118,31 @@
 ;;; ファイル操作 ;;;
 ;;;;;;;;;;;;;;;;;;;;
 
-;; 現在カーソル位置のファイル・URLを開く
-(ffap-bindings)
+;;; 最近開いたファイルを保存する数を増やす
+(setq recentf-max-saved-items 10000)
 
 ;; 最近使ったファイルを開く
-(setq recentf-max-saved-items 3000)
 (setq recentf-exclude '("/TAGS$" "/var/tmp/"))
-
 (require 'recentf-ext)
 (define-key global-map (kbd "C-x C-m") 'recentf-open-files)
+
+;;; diredを便利にする
+(require 'dired-x)
+
+;;; diredから"r"でファイル名をインライン編集する
+(require 'wdired)
+(define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
 
 ;; wdiredで、ファイルのパーミションを編集可能にする
 ;; "C-x d"でwdired、"C-x C-q"で編集モード
 (setq wdired-allow-to-change-permissions t)
+
+;;; ファイル名が重複していたらディレクトリ名を追加する。
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+
+;; 現在カーソル位置のファイル・URLを開く
+(ffap-bindings)
 
 
 

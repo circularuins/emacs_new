@@ -1,6 +1,21 @@
 ;;; Localeに合わせた環境の設定
 (set-locale-environment nil)
 
+;;; 文字コードの指定
+(set-language-environment "Japanese")
+(prefer-coding-system 'utf-8)
+
+;;; Macの場合のファイル名の設定
+(when (eq system-type 'darwin)
+  (require 'ucs-normalize)
+  (set-file-name-coding-system 'utf-8-hfs)
+  (setq locale-coding-system 'utf-8-hfs))
+
+;;; Windowsの場合のファイル名の設定
+(when (eq window-system 'w32)
+  (set-file-name-coding-system 'cp932)
+  (setq locale-coding-system 'cp932))
+
 ;;; キーワードのカラー表示を有効化
 (global-font-lock-mode t)
 
@@ -47,22 +62,6 @@
 ;;; "yes or no"の代わりに"y or n"を使用
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;;; 年月日時刻の表示
-;; 以下の書式に従ってモードラインに日付・時刻を表示する 
-(setq display-time-string-forms 
-'((format "%s/%s/%s(%s) %s:%s" 
-year month day 
-dayname 
-24-hours minutes) 
-load 
-(if mail " Mail" ""))) 
-;; 時間を表示 
-(display-time) 
-;; 時刻表示の左隣に日付を追加。 
-(setq display-time-kawakami-form t) 
-;; 24 時間制 
-(setq display-time-24hr-format t)
-
 ;;; 履歴を次回emacs起動畤にも保存する
 (savehist-mode 1)
 
@@ -81,23 +80,6 @@ load
 
 ;;; ミニバッファの履歴を保存する
 (savehist-mode 1)
-
-;;; minibufferでC-wで前の単語を削除
-;;(define-key minibuffer-local-completion-map "\C-w" 'backward-kill-word)
-
-;;; 最近開いたファイルを保存する数を増やす
-(setq recentf-max-saved-items 10000)
-
-;;; diredを便利にする
-(require 'dired-x)
-
-;;; diredから"r"でファイル名をインライン編集する
-(require 'wdired)
-(define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
-
-;;; ファイル名が重複していたらディレクトリ名を追加する。
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
 ;;; キーストロークをエコーエリアに早く表示する
 (setq echo-keystrokes 0.1)
