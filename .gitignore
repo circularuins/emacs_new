@@ -1,11 +1,16 @@
+# Ignore
 .*~
 *~
 /*
 
+# Except
 !/init.el
 !/init.elc
 !/conf
 !/elisp
 !/elpa
+!/public_repos/.gitkeep
+!/eshell/alias
+!/backups/.gitkeep
 !/doc
 !/.gitignore
