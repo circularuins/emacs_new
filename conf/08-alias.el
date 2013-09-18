@@ -7,3 +7,6 @@
 
 ;; ドキュメントの串刺し検索
 (defalias 'afd 'anything-for-document)
+
+;; 選択範囲に対してPerlコマンドを実行する関数
+(defalias 'pe 'perl-eval)

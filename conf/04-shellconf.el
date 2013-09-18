@@ -248,3 +248,17 @@
       (expand-file-name "~/.emacs.d/doc/hyperspec/HyperSpec/Data/Map_Sym.txt"))
 ;; カーソル付近にある単語の情報を表示
 (slime-autodoc-mode)
+
+
+
+
+
+;;;;;;;;;;;;;;;;;;;
+;;; Shell Utils ;;;
+;;;;;;;;;;;;;;;;;;;
+
+;; 選択範囲に対してPerlコマンドを実行する関数
+(defun perl-eval (beg end)
+  (interactive "r")
+  (save-excursion
+    (shell-command-on-region beg end "perl" 0)))
