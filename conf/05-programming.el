@@ -26,7 +26,38 @@
       nil nil nil 0)))
  (define-key emacs-lisp-mode-map (kbd "C-;") 'my-describe-function)
 
+;;; マニュアルビューアの設定 ;;;
 
+;; womanキャッシュを作成
+;; C-u M-x woman RET で更新
+(setq woman-cache-filename "~/.emacs.d/.wmncache.el")
+
+;; womanにmanパスを設定
+(setq woman-manpath '("/usr/share/man"
+                      "/usr/local/share/man"
+;                      "/usr/local/share/man/ja"))
+                      "/usr/local/share/man/jp"))
+
+;; anything-for-document用のソースを定義
+;; M-x anything-for-documentでドキュメントを串刺し検索
+(setq anything-for-document-sources
+      (list anything-c-source-man-pages
+            anything-c-source-info-cl
+            anything-c-source-info-pages
+            anything-c-source-info-elisp
+;            anything-c-source-info-emacs
+            anything-c-source-emacs-commands
+            anything-c-source-emacs-functions
+            anything-c-source-emacs-variables))
+
+;; anything-for-documentコマンドを作成
+(defun anything-for-document ()
+  "Preconfigured `anything' for anything-for-document."
+  (interactive)
+  (anything anything-for-document-sources
+ ;           (thing-at-point 'symbol) nil nil nil
+            nil nil nil nil
+            "*anything for document*"))
 
 
 
