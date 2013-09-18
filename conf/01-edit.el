@@ -58,9 +58,6 @@
 
 ;;; #表示 ;;;
 
-;; カーソル位置の列番号を表示
-(column-number-mode t)
-
 ;; 相対的なカーソル位置を保ったまま画面スクロール
 (setq scroll-preserve-screen-position t)
 

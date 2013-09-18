@@ -22,21 +22,8 @@
 ;;; 起動画面の非表示
 (setq inhibit-startup-message t)
 
-;;; タイトルバーにファイル名を表示(GUIのみ)
-(when window-system
-  (setq frame-title-format(format "%%f - emacs@%s"(system-name))))
-
 ;;; 警告音なし
 (setq ring-bell-function 'ignore)
-
-;;; ツールバーを非表示
-(tool-bar-mode -1)
-
-;;; スクロールバーを非表示
-(scroll-bar-mode -1)
-
-;;; メニューバーを非表示
-(menu-bar-mode -1)
 
 ;;; バックアップファイルを作らない
 (setq make-backup-files nil)
@@ -64,9 +51,6 @@
 
 ;;; 履歴を次回emacs起動畤にも保存する
 (savehist-mode 1)
-
-;;; 画像ファイルをバッファ内で表示する
-(auto-image-file-mode t)
 
 ;;; evalした結果を全部表示
 (setq eval-expression-print-length nil)

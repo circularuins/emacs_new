@@ -1,3 +1,94 @@
+;;;;;;;;;;;;;;;;;;;;;;
+;;; ウィンドウ関連 ;;;
+;;;;;;;;;;;;;;;;;;;;;;
+
+;;; #サイズと背景色(GUIのみ) ;;;
+
+;; 起動時のウィンドウサイズ
+(when window-system
+  (setq initial-frame-alist
+        (append (list
+                 '(width . 180)
+                 '(height . 58)
+                 '(top . 0)
+                 '(left . 0)
+                 )
+                initial-frame-alist))
+  (setq default-frame-alist initial-frame-alist))
+
+;; 背景色と透明度
+(if window-system (progn
+  (set-background-color "Black")
+  (set-foreground-color "LightGray")
+  (set-cursor-color "Gray")
+  (set-frame-parameter nil 'alpha 85)
+  ))
+
+;;; #各種バー設定(GUIのみ) ;;;
+
+(when window-system
+  ; タイトルバーにファイル名を表示(GUIのみ)
+  (setq frame-title-format (format "%%f - emacs@%s" (system-name)))
+  ; ツールバーを非表示
+  (tool-bar-mode -1)
+  ; スクロールバーを非表示
+  (scroll-bar-mode -1)
+  ; メニューバーを非表示
+  (menu-bar-mode -1))
+
+;;; #文字やツールバーの色 ;;;
+
+;; color-themeの設定
+(require 'color-theme)
+(color-theme-initialize)
+;;(color-theme-arjen)
+;;(color-theme-euphoria)(
+(color-theme-clarity)
+;; color-theme-solorized.elを使う
+;; (when (require 'color-theme-solarized)
+;;   (color-theme-solarized-light))
+
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;
+;;; モードライン ;;;
+;;;;;;;;;;;;;;;;;;;;
+
+;; カーソル位置の列番号を表示
+(column-number-mode t)
+
+;; ファイルサイズ表示
+(size-indication-mode t)
+
+;; 年月日時刻の表示
+;; 以下の書式に従ってモードラインに日付・時刻を表示する 
+(setq display-time-string-forms 
+'((format "%s/%s/%s(%s) %s:%s" 
+year month day 
+dayname 
+24-hours minutes) 
+load 
+(if mail " Mail" ""))) 
+(display-time) ; 時間を表示
+(setq display-time-kawakami-form t) ; 時刻表示の左隣に日付を追加
+(setq display-time-24hr-format t) ; 24 時間制
+
+;; リージョン内の行数と文字数をモードラインに表示する(範囲指定時のみ)
+(defun count-lines-and-chars ()
+  (if mark-active
+      (format "%d lines, %d chars "
+              (count-lines (region-beginning) (region-end))
+              (- (region-end) (region-beginning)))
+    ""))
+(add-to-list 'default-mode-line-format
+             '(:eval (count-lines-and-chars)))
+
+
+
+
+
 ;;;;;;;;;;;;;;;;;;;;
 ;;; バッファ関連 ;;;
 ;;;;;;;;;;;;;;;;;;;;
@@ -104,44 +195,38 @@
 
 
 
-;;;;;;;;;;;;;;;;;;;;;;
-;;; ウィンドウ関連 ;;;
-;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;; その他 ;;;
+;;;;;;;;;;;;;;
 
-;;; #サイズと背景色 ;;;
+;; jaspace.el を使った全角空白、タブ、改行表示モード
+;; 切り替えは M-x jaspace-mode-on or -off
+(require 'jaspace)
+(setq jaspace-alternate-jaspace-string "□")
+;(setq jaspace-alternate-eol-string "↓\n")
+(setq jaspace-highlight-tabs t)  ; highlight tabs
+;(setq jaspace-highlight-tabs ?&gt;) ; use ^ as a tab marker
 
-;; 起動時のウィンドウサイズ
-(setq initial-frame-alist
-      (append (list
-      '(width . 180)
-      '(height . 55)
-      '(top . 0)
-      '(left . 0)
-       )
-      initial-frame-alist))
-(setq default-frame-alist initial-frame-alist)
+;;; 画像ファイルをバッファ内で表示する
+(when window-system
+  (auto-image-file-mode t))
 
-;; 背景色と透明度
-(if window-system (progn
-  (set-background-color "Black")
-  (set-foreground-color "LightGray")
-  (set-cursor-color "Gray")
-  (set-frame-parameter nil 'alpha 85)
-  ))
-
-;;; #文字やツールバーの色 ;;;
-
-;; color-themeの設定
-(require 'color-theme)
-(color-theme-initialize)
-;;(color-theme-arjen)
-;;(color-theme-euphoria)(
-(color-theme-clarity)
-;; color-theme-solorized.elを使う
-;; (when (require 'color-theme-solarized)
-;;   (color-theme-solarized-light))
-
-;;; #各種ウィンドウモード ;;;
+;; バッファ内での画像ファイルの表示 ;;;
+; iimage-modeでホームディレクトリを展開
+(setq iimage-mode-image-filename-regex
+     (concat "[-~+./_0-9a-zA-Z]+\\."
+             (regexp-opt (nconc (mapcar #'upcase
+                                        image-file-name-extensions)
+                                image-file-name-extensions))))
+; C-lC-lを再描画に設定
+(setq iimage-mode-map (make-sparse-keymap))
+(define-key iimage-mode-map "\C-l" nil)
+(define-key iimage-mode-map "\C-l\C-l" 'iimage-recenter)
+; 5秒何もしなければ再描画
+(run-with-idle-timer 5 5 (lambda () (and iimage-mode (iimage-recenter))))
+; テキストモードでiimage-modeをon(GUIのみ)
+(when window-system
+  (add-hook 'text-mode-hook 'turn-on-iimage-mode))
 
 ;; e2wmモード（IDE風のウィンドウ分割）
 ;; (auto-install-from-url "http://github.com/kiwanami/emacs-window-layout/raw/master/window-layout.el")
@@ -176,70 +261,3 @@
     (global-set-key (kbd "C-c <right>") 'windmove-right)
     (global-set-key (kbd "C-c <up>")    'windmove-up)
     (global-set-key (kbd "C-c <down>")  'windmove-down)
-
-
-
-
-
-;;;;;;;;;;;;;;;;;;;;
-;;; モードライン ;;;
-;;;;;;;;;;;;;;;;;;;;
-
-;; ファイルサイズ表示
-(size-indication-mode t)
-
-;; 年月日時刻の表示
-;; 以下の書式に従ってモードラインに日付・時刻を表示する 
-(setq display-time-string-forms 
-'((format "%s/%s/%s(%s) %s:%s" 
-year month day 
-dayname 
-24-hours minutes) 
-load 
-(if mail " Mail" ""))) 
-(display-time) ; 時間を表示
-(setq display-time-kawakami-form t) ; 時刻表示の左隣に日付を追加
-(setq display-time-24hr-format t) ; 24 時間制
-
-;; リージョン内の行数と文字数をモードラインに表示する(範囲指定時のみ)
-(defun count-lines-and-chars ()
-  (if mark-active
-      (format "%d lines, %d chars "
-              (count-lines (region-beginning) (region-end))
-              (- (region-end) (region-beginning)))
-    ""))
-(add-to-list 'default-mode-line-format
-             '(:eval (count-lines-and-chars)))
-
-
-
-
-
-;;;;;;;;;;;;;;
-;;; その他 ;;;
-;;;;;;;;;;;;;;
-
-;; jaspace.el を使った全角空白、タブ、改行表示モード
-;; 切り替えは M-x jaspace-mode-on or -off
-(require 'jaspace)
-(setq jaspace-alternate-jaspace-string "□")
-;(setq jaspace-alternate-eol-string "↓\n")
-(setq jaspace-highlight-tabs t)  ; highlight tabs
-;(setq jaspace-highlight-tabs ?&gt;) ; use ^ as a tab marker
-
-;; バッファ内での画像ファイルの表示 ;;;
-; iimage-modeでホームディレクトリを展開
-(setq iimage-mode-image-filename-regex
-     (concat "[-~+./_0-9a-zA-Z]+\\."
-             (regexp-opt (nconc (mapcar #'upcase
-                                        image-file-name-extensions)
-                                image-file-name-extensions))))
-; C-lC-lを再描画に設定
-(setq iimage-mode-map (make-sparse-keymap))
-(define-key iimage-mode-map "\C-l" nil)
-(define-key iimage-mode-map "\C-l\C-l" 'iimage-recenter)
-; 5秒何もしなければ再描画
-(run-with-idle-timer 5 5 (lambda () (and iimage-mode (iimage-recenter))))
-; テキストモードでiimage-modeをon(GUIのみ)
-(when window-system
-  (add-hook 'text-mode-hook 'turn-on-iimage-mode))
