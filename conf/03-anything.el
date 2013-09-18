@@ -104,6 +104,8 @@
 ;; lisp-modeとslimeで自動補完する
 (add-to-list 'ac-modes 'lisp-mode)
 (add-to-list 'ac-modes 'slime-repl-mode)
+(add-to-list 'ac-modes 'html-mode)
+(add-to-list 'ac-modes 'js2-mode)
 ;;; ac-mode
 ;(autoload 'ac-mode "ac-mode" "Minor mode for advanced completion." t nil)
 
