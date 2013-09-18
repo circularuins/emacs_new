@@ -1,21 +1,3 @@
-;;; Localeに合わせた環境の設定
-(set-locale-environment nil)
-
-;;; 文字コードの指定
-(set-language-environment "Japanese")
-(prefer-coding-system 'utf-8)
-
-;;; Macの場合のファイル名の設定
-(when (eq system-type 'darwin)
-  (require 'ucs-normalize)
-  (set-file-name-coding-system 'utf-8-hfs)
-  (setq locale-coding-system 'utf-8-hfs))
-
-;;; Windowsの場合のファイル名の設定
-(when (eq window-system 'w32)
-  (set-file-name-coding-system 'cp932)
-  (setq locale-coding-system 'cp932))
-
 ;;; キーワードのカラー表示を有効化
 (global-font-lock-mode t)
 
