@@ -97,9 +97,25 @@
 ;;; 編集系の設定 ;;;
 ;;;;;;;;;;;;;;;;;;;;
 
+;;; 矩形編集 ;;;
+
+;; cua-mode
+;; C-RETで開始、C-gで終了
+;; #連番入力の手順
+;; 矩形選択後、M-oでスペース1文字挿入
+;; M-n 後、初期値、加算値、フォーマットの順に入力
+(cua-mode t)
+(setq cua-enable-cua-keys nil) ; CUAキーバインドを無効に
+; ターミナルでデフォルトの"C-RET"が使えないので変更する
+(define-key global-map (kbd "C-x C-x") 'cua-set-rectangle-mark)
+
+;;; grep系 ;;;
+
 ;; M-x grep 検索結果を編集可能に
 ;; ack --nogroup hoge でackが使える
 (require 'grep-edit)
+
+;;; その他;;;
 
 ;;; tailモード
 (require 'tail)
