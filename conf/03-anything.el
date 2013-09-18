@@ -2,19 +2,41 @@
 ;;; anything関連の設定 ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;(require 'anything-startup)
+;; 基本設定
 (require 'anything)
+;(require 'anything-startup)
+; 動作チューニング
+(setq
+ ; 候補を表示するまでの時間。初期値は0.5
+ anything-idle-delay 0.3
+ ; タイプして再描写するまでの時間。初期値は0.1
+ anything-input-idle-delay 0.2
+ ; 候補の最大表示数。初期値は50
+ anything-candidate-number-limit 100
+ ; 候補が多い時に体感速度を速くする
+ anything-quick-update t
+ ; 候補選択ショートカットキーをアルファベットに
+ anything-enable-shortcuts 'alphabet)
 (require 'anything-config)
-;(key-chord-define-global "zx"
+; root権限でアクションを実行するときのコマンド
+; デフォルトは"su"
+(setq anything-su-or-sudo "sudo")
+; M-xでanything起動
 (define-key global-map (kbd "M-x")
   (lambda ()
     (interactive)
     (anything-other-buffer
      '(anything-c-source-extended-command-history anything-c-source-emacs-commands)
      "*anything emacs commands*")))
-;; 履歴コマンドの設定
+; 履歴にデフォルト表示させるコマンド
 (setq extended-command-history
      '( "anything-for-files" "perltidy-region" "eval-region" "eval-buffer"))
+(require 'anything-match-plugin nil t)
+(require 'anything-complete)
+; Lispシンボルの補完候補の再検索時間
+(anything-lisp-complete-symbol-set-timer 150)
+(require 'anything-show-completion nil t)
+(require 'anything-auto-install nil t)
 
 ;; describe-bindingsをAnythingに置き換える
 (when (require 'descbinds-anything nil t)
@@ -25,7 +47,6 @@
 
 ;; anythingフレームワークでフォントを確認する
 (require 'cl)  ; loop, delete-duplicates
-
 (defun anything-font-families ()
   "Preconfigured `anything' for font family."
   (interactive)
@@ -33,7 +54,6 @@
     (anything-other-buffer
      '(anything-c-source-font-families)
      "*anything font families*")))
-
 (defun anything-font-families-create-buffer ()
   (with-current-buffer
       (get-buffer-create "*Fonts*")
@@ -43,7 +63,6 @@
                           'font-lock-face
                           (list :family family :height 2.0 :weight 'bold))))
     (font-lock-mode 1)))
-
 (defvar anything-c-source-font-families
   '((name . "Fonts")
     (init lambda ()
