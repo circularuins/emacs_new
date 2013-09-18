@@ -117,7 +117,7 @@
 
 ;;; その他;;;
 
-;;; tailモード
+;; tailモード
 (require 'tail)
 (setq tail-volatile nil)
 (setq tail-hide-delay 100000)
@@ -131,7 +131,25 @@
 ;;; ファイル操作 ;;;
 ;;;;;;;;;;;;;;;;;;;;
 
-;;; 最近開いたファイルを保存する数を増やす
+;; バックアップファイルを作らない
+(setq make-backup-files nil)
+
+;; オートセーブファイルを作らない
+;(setq auto-save-default nil)
+
+;; オートセーブファイルを~/.emacs.d/backups/へ集める
+;; M-x recover-file RET ~/.emacs.d/backups/hoge.hoge RET でバッファが復元される
+(setq auto-save-file-name-transforms
+      `((".*" ,(expand-file-name "~/.emacs.d/backups/") t)))
+
+;; オートセーブファイル作成までの時間とタイプ間隔
+(setq auto-save-timeout 15)
+(setq auto-save-interval 60)
+
+;; 終了時にオートセーブファイルを消す
+(setq delete-auto-save-files t)
+
+;; 最近開いたファイルを保存する数を増やす
 (setq recentf-max-saved-items 10000)
 
 ;; 最近使ったファイルを開く
@@ -139,10 +157,10 @@
 (require 'recentf-ext)
 (define-key global-map (kbd "C-x C-m") 'recentf-open-files)
 
-;;; diredを便利にする
+;; diredを便利にする
 (require 'dired-x)
 
-;;; diredから"r"でファイル名をインライン編集する
+;; diredから"r"でファイル名をインライン編集する
 (require 'wdired)
 (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
 
@@ -150,7 +168,7 @@
 ;; "C-x d"でwdired、"C-x C-q"で編集モード
 (setq wdired-allow-to-change-permissions t)
 
-;;; ファイル名が重複していたらディレクトリ名を追加する。
+;; ファイル名が重複していたらディレクトリ名を追加する。
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
@@ -180,6 +198,12 @@
 (global-undo-tree-mode)
 
 ;;; #履歴の保存 ;;;
+
+;; 履歴を次回emacs起動畤にも保存する
+(savehist-mode 1)
+
+;; 履歴数を大きくする
+(setq history-length t)
 
 ;; kill-ringやミニバッファで過去に開いたファイルなどの履歴を保存する
 (when (require 'session nil t)
