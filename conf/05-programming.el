@@ -130,6 +130,8 @@
 (add-hook 'js2-mode-hook
           '(lambda ()
              (setq js2-basic-offs_et 4)))
+;js2-modeが持つインデントの不具合を解決する
+(add-hook 'js2-mode-hook 'js-indent-hook)
 
 
 
