@@ -182,3 +182,24 @@
 ;; yaml-mode
 (when (require 'yaml-mode nil t)
   (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode)))
+
+
+
+
+
+;;;;;;;;;;;;
+;;; TAGS ;;;
+;;;;;;;;;;;;
+
+;;; etags ;;;
+
+;; 目的のライブラリのディレクトリに行き、
+;; $ etags *.pm *.pl
+;; で、TAGSファイルを作成
+;; "M-." クラス名や関数名を入力する（デフォルトでカーソル下を取る）
+;; "C-u M-." 複数ヒットする場合、次の候補へ
+;; "M-*" 呼び出し箇所へ戻る
+
+;;; ctags ;;;
+
+;;; gtags ;;;
