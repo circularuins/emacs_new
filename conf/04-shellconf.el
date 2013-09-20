@@ -82,7 +82,7 @@
                (define-key eshell-mode-map [up] 'previous-line)
                (define-key eshell-mode-map [down] 'next-line)
                ;(define-key eshell-mode-map [(meta return)] 'ns-toggle-fullscreen)
-               (define-key eshell-mode-map [(meta return)] (select-toggle-fullscreen))
+;               (define-key eshell-mode-map [(meta return)] (select-toggle-fullscreen))
                )
              ))
 (define-key global-map (kbd "C-z") 'eshell)
