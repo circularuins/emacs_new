@@ -46,7 +46,7 @@
             anything-c-source-info-pages
             anything-c-source-info-elisp
 ;            anything-c-source-info-emacs
-            anything-c-source-emacs-commands
+;            anything-c-source-emacs-commands
             anything-c-source-emacs-functions
             anything-c-source-emacs-variables))
 
