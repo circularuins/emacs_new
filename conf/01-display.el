@@ -47,9 +47,10 @@
 ;;;;;;;;;;;;;;;;;;;;
 
 ;; asciiフォントをMenloに
-(set-face-attribute 'default nil
-                    :family "Menlo"
-                    :height 120)
+(when (eq system-type 'darwin)
+  (set-face-attribute 'default nil
+                      :family "Menlo"
+                      :height 120))
 
 ;; Macのフォント設定
 (when (eq system-type 'darwin)
