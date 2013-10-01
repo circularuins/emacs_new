@@ -10,3 +10,6 @@
 
 ;; 選択範囲に対してPerlコマンドを実行する関数
 (defalias 'pev 'perl-eval)
+
+;; ソースコード上でプログラムの実行を行う関数
+(defalias 'qr 'quickrun-sc)
