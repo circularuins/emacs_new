@@ -35,6 +35,8 @@
   (setq locale-coding-system 'cp932))
 
 ;;; MetaキーをAltからCmdへ変更(Macのみ)
+; "Symbol's value as variable is void: warning-suppress-types" というエラーを出さないための設定
+(setq warning-suppress-types nil)
 (when (eq system-type 'darwin)
   (setq ns-command-modifier (quote meta))
   (setq ns-alternate-modifier (quote super)))
