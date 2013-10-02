@@ -5,6 +5,7 @@
 ;; MacのEmacs.app用の設定
 (when (eq system-type 'darwin)
   (setenv "PATH" (concat (expand-file-name "/usr/local/bin/:") (getenv "PATH")))
+  (setenv "PATH" (concat (expand-file-name "/Users/wake/.plenv/versions/5.18.1/bin/:") (getenv "PATH")))
   (setq eshell-path-env (getenv "PATH")))
 
 
