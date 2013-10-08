@@ -232,6 +232,7 @@
 (setq auto-insert-alist
       (append '(
                 ("\\.pl$" . ["Template.pl"])
+                ("\\.psgi$" . ["Template.psgi"])
                 ) auto-insert-alist))
 (add-hook 'find-file-hooks 'auto-insert)
 
