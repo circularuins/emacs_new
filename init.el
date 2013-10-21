@@ -86,6 +86,7 @@
 ; リポジトリにMarmaladeと開発者個人のELPAを追加
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/"))
+(add-to-list 'package-archives '("MELPA" . "http://melpa.milkbox.net/packages/"))
 ; インストールするディレクトリを指定
 (setq package-user-dir (concat user-emacs-directory "elpa"))
 ; インストールしたパッケージにロードパスを通してロードする

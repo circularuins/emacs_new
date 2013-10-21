@@ -19,6 +19,9 @@
 (show-paren-mode 1)
 (setq show-paren-style 'mixed)
 
+;;; コードの階層に対応してカッコに色を付ける
+(global-rainbow-delimiters-mode t)
+
 ;;; 1行ずつスクロール
 (setq scroll-step 1)
 
