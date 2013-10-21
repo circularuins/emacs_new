@@ -124,6 +124,16 @@
 ;; (when (require 'color-theme-solarized)
 ;;   (color-theme-solarized-light))
 
+;;; 開いているウィンドウ一覧をポップアップ表示する
+;;; C-n/C-pや英字キーで選択する
+
+;; C-x oにpopup-select-windowをバインド
+(global-set-key "\C-xo" 'popup-select-window)
+;; ウィンドウが2つ以上存在する際にポップアップ表示する
+(setq popup-select-window-popup-windows 2)
+;; 選択中のウィンドウは、背景をオレンジにして目立たせる
+(setq popup-select-window-window-highlight-face '(:foreground "white" :background "yellow"))
+
 
 
 

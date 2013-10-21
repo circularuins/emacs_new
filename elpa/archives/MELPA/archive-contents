@@ -40,7 +40,7 @@
 	     [(20130501 727)
 	      nil "provide framework about exception like Java for elisp [github]" single])
  (yasnippet .
-	    [(20131014 928)
+	    [(20131021 928)
 	     nil "Yet another snippet extension for Emacs. [github]" tar])
  (yascroll .
 	   [(20130321 334)
@@ -387,7 +387,7 @@
 		     [(20130720 1549)
 		      nil "Ukrainian holidays for Emacs calendar. [github]" single])
  (ujelly-theme .
-	       [(20131020 2101)
+	       [(20131021 105)
 		nil "Ujelly theme for GNU Emacs 24 (deftheme) [github]" single])
  (ucs-utils .
 	    [(20131017 1101)
@@ -836,7 +836,7 @@
 	  [(20130210 1815)
 	   nil "Insert snippets of text into a buffer [github]" single])
  (smotitah .
-	   [(20130916 1943)
+	   [(20131018 1744)
 	    nil "Modular emacs configuration framework [github]" tar])
  (smooth-scrolling .
 		   [(20130602 1609)
@@ -873,7 +873,7 @@
 		 [(20051013 1756)
 		  nil "Beautify the operators in codes [wiki]" single])
  (smart-mode-line .
-		  [(20131013 1149)
+		  [(20131021 1133)
 		   nil "A color coded smart mode-line. [github]" single])
  (smart-forward .
 		[(20130205 1352)
@@ -987,7 +987,7 @@
 	  [(20120511 0)
 	   nil "use variables, registers and buffer places across sessions [github]" single])
  (servant .
-	  [(20131020 1652)
+	  [(20131021 1236)
 	   ((s
 	     (1 8 0))
 	    (dash
@@ -1076,7 +1076,7 @@
 	   [(20111202 2307)
 	    nil "shorten file-names in compilation type buffers [github]" single])
  (scala-mode2 .
-	      [(20130913 1338)
+	      [(20131021 1225)
 	       nil "Major mode for editing Scala >= 2.9 [github]" tar])
  (scala-mode .
 	     [(20131018 1110)
@@ -1597,7 +1597,7 @@
 	   [(20101125 1955)
 	    nil "A simple interface to the www.pastebin.com webservice [wiki]" single])
  (paste-kde .
-	    [(20131004 407)
+	    [(20131021 813)
 	     ((web
 	       (0 3 6)))
 	     "paste text to KDE's pastebin service [github]" single])
@@ -2344,7 +2344,7 @@
 			       [(20130730 1032)
 				nil "Advice for magit-log-edit-commit [github]" single])
  (magit .
-	[(20131020 1204)
+	[(20131021 1104)
 	 ((cl-lib
 	   (0 3))
 	  (git-commit-mode
@@ -2773,7 +2773,7 @@
 	     [(20130104 2221)
 	      nil "add URLs to instapaper from emacs [hg]" single])
  (insert-shebang .
-		 [(20131017 1723)
+		 [(20131021 1357)
 		  nil "Insert shebang line automatically. [github]" single])
  (inlineR .
 	  [(20120520 2332)
@@ -2849,7 +2849,7 @@
 	 [(20130331 2008)
 	  nil "interactively flip between recently visited buffers [hg]" single])
  (iedit .
-	[(20131019 1947)
+	[(20131021 1616)
 	 nil "Edit multiple regions in the same way simultaneously. [github]" tar])
  (idomenu .
 	  [(20111122 1048)
@@ -4106,7 +4106,7 @@
 	   [(20130220 1109)
 	    nil "assign files to projects, programatically [github]" tar])
  (epl .
-      [(20131017 1010)
+      [(20131021 842)
        ((cl-lib
 	 (0 3)))
        "Emacs Package Library [github]" single])
@@ -4417,7 +4417,7 @@
 		   (0 2 3)))
 		 "Set faces based on available fonts [github]" single])
  (dylan-mode .
-	     [(20131010 2348)
+	     [(20131020 2253)
 	      nil "Major mode for editing Dylan programs. [github]" tar])
  (duplicate-thing .
 		  [(20120516 148)
@@ -4905,7 +4905,7 @@
 		       [(20100310 1348)
 			nil "cursor stays vertically centered [wiki]" single])
  (cask .
-       [(20131020 1327)
+       [(20131021 840)
 	((s
 	  (1 8 0))
 	 (dash
@@ -5182,7 +5182,7 @@
 		    (11 87)))
 		  "Add LatexMk support to AUCTeX [github]" single])
  (async .
-	[(20130716 1449)
+	[(20131020 1647)
 	 nil "Asynchronous processing in Emacs [github]" tar])
  (ascope .
 	 [(20130824 1158)
@@ -5226,6 +5226,9 @@
 		      ((anything
 			(1 3 9)))
 		      "anything for git files [github]" single])
+ (anything .
+	   [(20130606 946)
+	    nil "open anything / QuickSilver-like candidate-selection framework [git]" tar])
  (anti-zenburn-theme .
 		     [(20131014 2305)
 		      nil "Low-contrast Zenburn-inverted theme [github]" single])
@@ -5379,8 +5382,5 @@
 	      (1 2))
 	     (request
 	      (0 2 0)))
-	    "Open and evaluate 4clojure.com questions [github]" single])
- (anything .
-	   [(20130606 946)
-	    nil "open anything / QuickSilver-like candidate-selection framework [git]" tar]))
+	    "Open and evaluate 4clojure.com questions [github]" single]))
 
