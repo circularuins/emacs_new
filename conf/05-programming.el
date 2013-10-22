@@ -233,6 +233,8 @@
       (append '(
                 ("\\.pl$" . ["Template.pl"])
                 ("\\.psgi$" . ["Template.psgi"])
+                ("\\.pm$" . ["Template.pm"])
+                ("\\.t$" . ["Template.t"])
                 ) auto-insert-alist))
 (add-hook 'find-file-hooks 'auto-insert)
 
