@@ -2,6 +2,7 @@
 .*~
 *~
 /*
+/elpa/archives/*
 
 # Except
 !/init.el

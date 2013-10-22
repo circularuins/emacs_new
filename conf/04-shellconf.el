@@ -49,9 +49,9 @@
 ;; 起動時のウェルカムメッセージ
 (let* ((voice (random 2)))
       (when (= voice 0)
-        (setq eshell-banner-message "\n\nハローイーシェル、グッド・バイ\n\n\n"))
+        (setq eshell-banner-message "\n\nHello Eshell, Goodbye\n\n\n"))
       (when (= voice 1)
-        (setq eshell-banner-message "\n\n山岸しごとしろ！\n\n\n")))
+        (setq eshell-banner-message "\n\nDon't think twice, use Emacs!\n\n\n")))
 
 ;; 補完時に大文字小文字を区別しない
 (setq eshell-cmpl-ignore-case t)
