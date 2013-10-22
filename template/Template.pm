@@ -6,7 +6,7 @@ use feature 'say';
 
 sub new {
     my $class = shift;
-    bless {}, class;
+    bless {}, $class;
 }
 
 sub {
