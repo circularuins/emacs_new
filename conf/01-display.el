@@ -127,6 +127,7 @@
 ;;; 開いているウィンドウ一覧をポップアップ表示する
 ;;; C-n/C-pや英字キーで選択する
 
+(require 'popup-select-window)
 ;; C-x oにpopup-select-windowをバインド
 (global-set-key "\C-xo" 'popup-select-window)
 ;; ウィンドウが2つ以上存在する際にポップアップ表示する
